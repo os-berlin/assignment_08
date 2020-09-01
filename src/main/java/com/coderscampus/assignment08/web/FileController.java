@@ -16,6 +16,16 @@ public class FileController {
 	@Autowired
 	private FileService fileService;	
 
+	@GetMapping("")
+	public String RecipesBook () {
+		return ("Please visit one of the following endpoints: <br>"
+				+ "<a href=\"/gluten-free\">/gluten-free</a><br>" 
+				+ "<a href=\"/vegan\">/vegan</a><br>" 
+				+ "<a href=\"/vegan-and-gluten-free\">/vegan-and-gluten-free</a><br>" 
+				+ "<a href=\"/vegetarian\">/vegetarian</a><br>" 
+				+ "<a href=\"/all-recipes\">/all-recipes</a><br>");
+	}
+	
 	@GetMapping("/gluten-free")
 	public List<Recipe> filterGlutenFree () throws IOException {
 		 return fileService.filterRecipes("glutenFree");
